@@ -113,23 +113,32 @@
         // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
 
         // option 1: WesBos' solution
-        const category = document.querySelector('.mw-category');
+        // const category = document.querySelector('.mw-category');
         // option 1: original
         // const links = Array.from(category.querySelectorAll('a'));
         // option 2: to make an array using Array.from
-        const links = Array.from(category.querySelectorAll('a'));
+        // const links = Array.from(category.querySelectorAll('a'));
         // option 3: to make an array using spread
         // const links = [...category.querySelectorAll('a')];
 
-        const de = links
-                    .map(link => link.textContent)
-                    .filter(streetName => streetName.includes('de'));
+        // const de = links
+        //             .map(link => link.textContent)
+        //             .filter(streetName => streetName.includes('de'));
         
         // 7. sort Exercise
         // Sort the people alphabetically by last name
 
+        // option 1: my solution
         const alphaSort = people.sort();
         console.log(alphaSort);
+
+        // option 2: WesBos' solution
+        const alphaSortW = people.sort((lastOne, nextOne) => {
+            const [aLast, aFirst] = lastOne.split(', ');
+            const [bLast, bFirst] = nextOne.split(', ');
+            return aLast > bLast ? 1: -1;
+        })
+        console.log(alphaSortW);
         
         // 8. Reduce Exercise
         // Sum up the instances of each of these
